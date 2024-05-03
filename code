@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Picker</title>
+</head>
+<body>
+
+<h1>Random Number Picker</h1>
+<script>
+    // Credit (guns.lol/whosken)
+</script>
+
+<p>Enter the range:</p>
+<input type="number" id="min" placeholder="Min">
+<input type="number" id="max" placeholder="Max">
+<button onclick="pickRandomNumber()">OK</button>
+
+<p id="result"></p>
+
+<script>
+    function pickRandomNumber() {
+        var min = parseInt(document.getElementById("min").value);
+        var max = parseInt(document.getElementById("max").value);
+        
+        if (isNaN(min) || isNaN(max)) {
+            document.getElementById("result").innerText = "Please enter valid numbers.";
+        } else if (min >= max) {
+            document.getElementById("result").innerText = "Min should be less than Max.";
+        } else {
+            var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById("result").innerText = "Random Number: " + randomNumber;
+        }
+    }
+</script>
+
+</body>
+</html>
